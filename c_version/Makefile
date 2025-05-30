@@ -1,6 +1,6 @@
 CC = clang
 CFLAGS = -Wall -std=c17 -pedantic
-SRCS = $(wildcard src/*.c)
+SRCS = $(wildcard budget/src/*.c)
 HEADER = $(SRCS:.c=.h)
 OBJS = $(SRCS:.c=.o)
 
