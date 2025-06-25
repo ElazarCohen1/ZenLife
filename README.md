@@ -45,6 +45,8 @@ The goal? **Less stress, more clarity.**
 ---
 
 ## 🗂️ Project Structure
+
+```plaintext
 zenlife/
 ├── flutter_version/ 
 │ ├── ios/
@@ -73,7 +75,7 @@ zenlife/
 ├── local.db # SQLite (temporary local storage)
 ├── LICENSE
 └── schema.sql # PostgreSQL structure for later deployment
-
+```
 
 
 
