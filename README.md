@@ -1,54 +1,106 @@
 # 🌿 ZenLife – Your Personal Assistant for a Balanced Life
 
-**ZenLife** is a C-based (Python/Web coming soon) application designed to help you manage your everyday life — from your **budget** and **habits** to your **meals** and **mental well-being**. The goal? Less stress, more clarity. Simple, minimal, and actually useful.
+**ZenLife** is a multi-platform life assistant app built with **Flutter (Dart)** for the frontend and **Python (Flask)** for the backend. It helps you organize your personal life — from **money management** and **meal planning** to **travel organization** and **daily well-being** — all in one clean, minimal app.
+
+The goal? **Less stress, more clarity.**
 
 ---
 
-## ✨ Features (MVP in progress)
+## ✨ Features (MVP in Progress)
 
-✅ = completed – 🛠️ = in progress – 🔜 = coming soon
+✅ = Completed 🛠️ = In Progress 🔜 = Coming Soon
 
-### 📊 Budget Management (current module)
-- ✅ Add **income** and **expenses**
-- ✅ Automatic saving to a `.txt` file
-- ✅ Calculate current **balance**
-- 🛠️ Auto-add monthly income
-- 🔜 Expense **categories**
-- 🔜 Monthly **summaries & statistics**
+### 🏠 Home Page
+- ✅ Intro to the app
+- ✅ Daily to-do or reflection space
+- 🔜 Motivational quotes / tips
 
-### 🧠 Mental Journal *(coming soon)*
-- 🔜 One reflective question per day
-- 🔜 Track your mood or mental state
+### 🔐 Authentication
+- ✅ Login / Sign up system
+- 🔜 Google or social login integration
+- 🔜 Session-based login using local + backend checks
 
-### 🥗 Meal Planning *(coming soon)*
-- 🔜 Weekly meal planning
-- 🔜 Auto-generate grocery list
+### 💰 Money Management
+- ✅ Add incomes and expenses
+- ✅ Basic balance tracking
+- 🔜 Expense categories
+- 🔜 Budget alerts or limits
+- 🔜 Monthly summaries
 
-### 🔔 Simple Reminders *(coming soon)*
-- 🔜 Notifications for medication, payments, etc.
+### 🥗 Meal Suggestions
+- 🛠️ Generate meal ideas based on budget
+- 🔜 Link to local grocery list
+- 🔜 Filter by diet (vegan, etc.)
+
+### ✈️ Travel Organizer
+- 🛠️ Plan trips
+- 🔜 Budget estimation
+- 🔜 Save favorite destinations
+- 🔜 Packing checklist
+
+### ⚙️ Settings
+- ✅ Change themes / colors (soon)
+- 🔜 Language and notification preferences
 
 ---
 
-## 📁 Project Structure
+## 🗂️ Project Structure
 zenlife/
-├── main.c
-├── budget.c
-├── budget.h
-├── utils.c
-├── utils.h
-├── Makefile
-├── data/
-│ └── transactions.txt
-└── README.md
+├── flutter_version/ 
+│ ├── ios/
+│ ├── lib/
+│ │ ├── main.dart # App entry point
+│ │ └── screens/ # Pages (Home, Money, Meal, Travel, etc.)
+│ │   └── accueil.dart
+│ |   ├── add_remove_payement.dart
+│ |   ├── connexion.dart
+│ |   ├── mainscaffold.dart
+│ |   ├── menu.dart
+│ |   ├── money.dart
+│ |   ├── my_meal.dart
+│ |   ├── settings.dart
+│ |   ├── travel.dart
+│ │ └── models/
+│ │   └── money.dart
+│ └── pubspec.yaml # Flutter dependencies
+│ ├── linux/
+│ ├── macos/
+│
+├── python_version/ 
+│
+├── README.md
+└── database/
+├── local.db # SQLite (temporary local storage)
+├── LICENSE
+└── schema.sql # PostgreSQL structure for later deployment
+
+
 
 
 ---
 
-## ⚙️ How to Compile
+## ⚙️ How to Run the App
 
-Make sure you have `clang` installed, then run:
+### 🟪 Flutter (main frontend)
+
+1. Install Flutter SDK: https://docs.flutter.dev/get-started
+2. Navigate to the Flutter project folder:
 
 ```bash
-make
-./build/budgetwise
+cd flutter_version
+flutter pub get
+flutter run
 ```
+## 🔒 Sécurité
+- Hashage des mots de passe (bcrypt)
+
+- Gestion des sessions
+
+- Protection des routes sensibles
+
+## Licence
+Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## Auteurs
+- [Cohen Elazar](https://github.com/ElazarCohen1)
+
