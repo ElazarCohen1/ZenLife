@@ -12,34 +12,34 @@ The goal? **Less stress, more clarity.**
 
 ### 🏠 Home Page
 - ✅ Intro to the app
-- ✅ Daily to-do or reflection space
+- 🔜 Daily to-do or reflection space
 - 🔜 Motivational quotes / tips
 
 ### 🔐 Authentication
-- ✅ Login / Sign up system
+- 🔜 Login / Sign up system
 - 🔜 Google or social login integration
 - 🔜 Session-based login using local + backend checks
 
 ### 💰 Money Management
-- ✅ Add incomes and expenses
+- 🔜 Add incomes and expenses
 - ✅ Basic balance tracking
 - 🔜 Expense categories
 - 🔜 Budget alerts or limits
 - 🔜 Monthly summaries
 
 ### 🥗 Meal Suggestions
-- 🛠️ Generate meal ideas based on budget
+- 🔜 Generate meal ideas based on budget
 - 🔜 Link to local grocery list
 - 🔜 Filter by diet (vegan, etc.)
 
 ### ✈️ Travel Organizer
-- 🛠️ Plan trips
+- 🛠🔜 Plan trips
 - 🔜 Budget estimation
 - 🔜 Save favorite destinations
 - 🔜 Packing checklist
 
 ### ⚙️ Settings
-- ✅ Change themes / colors (soon)
+- 🔜 Change themes / colors (soon)
 - 🔜 Language and notification preferences
 
 ---
