@@ -1,0 +1,28 @@
+^C:\USERS\ELAZA\ONEDRIVE\BUREAU\PROJETGITHUB\ZENLIFE\BUILD\CMAKEFILES\55BABBBED6E1CD7C167F525955CF6CB8\FLUTTER_WINDOWS.DLL.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\dev\flutter PROJECT_DIR=C:\Users\elaza\OneDrive\Bureau\projetGithub\ZenLife\flutter_version FLUTTER_ROOT=C:\dev\flutter FLUTTER_EPHEMERAL_DIR=C:\Users\elaza\OneDrive\Bureau\projetGithub\ZenLife\flutter_version\windows\flutter\ephemeral PROJECT_DIR=C:\Users\elaza\OneDrive\Bureau\projetGithub\ZenLife\flutter_version FLUTTER_TARGET=lib\main.dart DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=true PACKAGE_CONFIG=C:\Users\elaza\OneDrive\Bureau\projetGithub\ZenLife\flutter_version\.dart_tool\package_config.json C:/dev/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ELAZA\ONEDRIVE\BUREAU\PROJETGITHUB\ZENLIFE\BUILD\CMAKEFILES\5665C737CC526F965CC195085DEA42C6\FLUTTER_ASSEMBLE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\ELAZA\ONEDRIVE\BUREAU\PROJETGITHUB\ZENLIFE\FLUTTER_VERSION\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/elaza/OneDrive/Bureau/projetGithub/ZenLife/flutter_version/windows -BC:/Users/elaza/OneDrive/Bureau/projetGithub/ZenLife/build --check-stamp-file C:/Users/elaza/OneDrive/Bureau/projetGithub/ZenLife/build/flutter/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

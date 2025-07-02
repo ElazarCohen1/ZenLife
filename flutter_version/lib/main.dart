@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_version/models/money.dart';
-import 'package:flutter_version/screens/menu.dart';
+import 'package:flutter_version/data/classes/money.dart';
+import 'package:flutter_version/views/pages/widget_tree.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,35 +13,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    Budget budget = Budget();
+    return ChangeNotifierProvider(
+      create: (context) => Budget(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.white,
 
-    budget.addSpending(
-      Transaction(
-        amount: 12,
-        date: DateTime(2025, 05, 1),
-        description: "hh",
-        isIncome: 0,
+            brightness: Brightness.light,
+          ),
+        ),
+        home: WidgetTree(),
       ),
-    );
-    budget.addIncome(
-      Transaction(
-        amount: 100,
-        date: DateTime(2025, 06, 1),
-        description: "Salaire",
-        isIncome: 1,
-      ),
-    );
-    budget.addSpending(
-      Transaction(
-        amount: 20,
-        date: DateTime(2025, 07, 1),
-        description: "hh",
-        isIncome: 0,
-      ),
-    );
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Menu(budget: budget),
     );
   }
 }

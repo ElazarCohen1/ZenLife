@@ -1,0 +1,10 @@
+^C:\USERS\ELAZA\ONEDRIVE\BUREAU\PROJETGITHUB\ZENLIFE\BUILD\CMAKEFILES\D3E2800AF86C5271D4406BB40AD52B59\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/elaza/OneDrive/Bureau/projetGithub/ZenLife/flutter_version/windows -BC:/Users/elaza/OneDrive/Bureau/projetGithub/ZenLife/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/elaza/OneDrive/Bureau/projetGithub/ZenLife/build/flutter_version.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

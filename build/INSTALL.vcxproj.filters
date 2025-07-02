@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\elaza\OneDrive\Bureau\projetGithub\ZenLife\build\CMakeFiles\d3e2800af86c5271d4406bb40ad52b59\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{785F7A89-0BBB-32E9-A6C6-88D015F4F02B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
