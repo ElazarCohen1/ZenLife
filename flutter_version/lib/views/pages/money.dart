@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_version/data/classes/money.dart';
+import 'package:flutter_version/views/pages/add_payement.dart';
 import 'package:flutter_version/views/widget/customPaint.dart';
 import 'package:provider/provider.dart';
 
@@ -128,7 +129,10 @@ class _MoneyState extends State<Money> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Action pour ajouter une transaction
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AddPayement()),
+          );
         },
         child: const Icon(Icons.add),
       ),

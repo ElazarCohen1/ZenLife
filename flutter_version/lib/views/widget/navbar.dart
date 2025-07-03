@@ -12,6 +12,10 @@ class NavBar extends StatelessWidget {
         return NavigationBar(
           destinations: [
             NavigationDestination(icon: Icon(Icons.home), label: "Accueil"),
+            NavigationDestination(
+              icon: Icon(Icons.checklist),
+              label: "To-Do List",
+            ),
             NavigationDestination(icon: Icon(Icons.money), label: "Money"),
             NavigationDestination(icon: Icon(Icons.restaurant), label: "Repas"),
             NavigationDestination(
