@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_version/views/widget/customPaint.dart';
 
 class Accueil extends StatelessWidget {
   const Accueil({super.key});
@@ -6,22 +7,26 @@ class Accueil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ...List.generate(3, (context) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Text("bonjour", style: TextStyle(fontSize: 18)),
+      body: CustomPaint(
+        painter: BackgroundPainter(),
+        size: Size.infinite,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ...List.generate(3, (context) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Text("bonjour", style: TextStyle(fontSize: 18)),
+                    ),
                   ),
-                ),
-              );
-            }),
-          ],
+                );
+              }),
+            ],
+          ),
         ),
       ),
     );

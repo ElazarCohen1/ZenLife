@@ -16,7 +16,14 @@ class WidgetTree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Zen Life'),
+        title: Text(
+          'Zen Life',
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -27,8 +34,18 @@ class WidgetTree extends StatelessWidget {
             },
             icon: Icon(Icons.settings),
           ),
+          IconButton(
+            onPressed: () {
+              isDarkModeNotifier.value = !isDarkModeNotifier.value;
+            },
+            icon: Icon(
+              isDarkModeNotifier.value == true
+                  ? Icons.dark_mode
+                  : Icons.light_mode,
+            ),
+          ),
         ],
-        backgroundColor: const Color.fromARGB(255, 11, 224, 217),
+        backgroundColor: const Color.fromARGB(255, 95, 190, 187),
       ),
       body: ValueListenableBuilder(
         valueListenable: selectedPageNotifier,

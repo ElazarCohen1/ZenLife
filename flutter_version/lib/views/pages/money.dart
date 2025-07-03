@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_version/data/classes/money.dart';
+import 'package:flutter_version/views/widget/customPaint.dart';
 import 'package:provider/provider.dart';
 
 class Money extends StatefulWidget {
@@ -11,38 +12,126 @@ class Money extends StatefulWidget {
 
 class _MoneyState extends State<Money> {
   @override
+  void initState() {
+    super.initState();
+    final budget = Provider.of<Budget>(context, listen: false);
+    budget.addIncome(
+      Transaction(
+        amount: 1000.0,
+        date: DateTime.now(),
+        description: "Revenu initial",
+        isIncome: 1,
+      ),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     final budget = Provider.of<Budget>(context);
 
-    return Stack(
-      children: [
-        Text(
-          budget.calculBudget().toStringAsFixed(2) + " €",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Align(
-            alignment: Alignment.bottomLeft,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                FloatingActionButton(
-                  onPressed: (() {}),
-                  child: Icon(Icons.add),
-                ),
+    return Scaffold(
+      appBar: AppBar(title: const Text("Mes Transactions"), centerTitle: true),
+      body: SafeArea(
+        child: CustomPaint(
+          painter: BackgroundPainter(),
+          size: Size.infinite,
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Expanded(
+                child:
+                    budget.transactions.isEmpty
+                        ? const Center(
+                          child: Text("Aucune transaction enregistrée."),
+                        )
+                        : ListView.builder(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          itemCount: budget.transactions.length,
+                          itemBuilder: (context, index) {
+                            final transaction = budget.transactions[index];
+                            final isIncome = transaction.isIncome == 1;
+                            final icon =
+                                isIncome
+                                    ? Icons.arrow_upward
+                                    : Icons.arrow_downward;
+                            final iconColor =
+                                isIncome ? Colors.green : Colors.red;
 
-                SizedBox(width: 10),
-                FloatingActionButton(
-                  onPressed: (() {}),
-                  child: Icon(Icons.remove),
+                            return Card(
+                              elevation: 3,
+                              margin: const EdgeInsets.symmetric(vertical: 6),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: ListTile(
+                                leading: CircleAvatar(
+                                  backgroundColor: iconColor.withValues(
+                                    alpha: 0.2,
+                                  ),
+                                  child: Icon(icon, color: iconColor),
+                                ),
+                                title: Text(
+                                  transaction.description ??
+                                      "Aucune description",
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                subtitle: Text(
+                                  "${transaction.date.day}/${transaction.date.month}/${transaction.date.year}",
+                                  style: const TextStyle(fontSize: 13),
+                                ),
+                                trailing: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "${isIncome ? '+' : '-'}${transaction.amount.toStringAsFixed(2)} €",
+                                      style: TextStyle(
+                                        color: iconColor,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      icon: const Icon(Icons.delete_outline),
+                                      color: Colors.grey,
+                                      padding: EdgeInsets.zero,
+                                      onPressed: () {
+                                        if (isIncome) {
+                                          budget.removeIncome(transaction);
+                                        } else {
+                                          budget.removeSpending(transaction);
+                                        }
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                child: Text(
+                  "Solde actuel : ${budget.calculBudget().toStringAsFixed(2)} €",
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-      ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Action pour ajouter une transaction
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
