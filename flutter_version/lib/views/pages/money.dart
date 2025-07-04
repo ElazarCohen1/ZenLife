@@ -13,20 +13,6 @@ class Money extends StatefulWidget {
 
 class _MoneyState extends State<Money> {
   @override
-  void initState() {
-    super.initState();
-    final budget = Provider.of<Budget>(context, listen: false);
-    budget.addIncome(
-      Transaction(
-        amount: 1000.0,
-        date: DateTime.now(),
-        description: "Revenu initial",
-        isIncome: 1,
-      ),
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
     final budget = Provider.of<Budget>(context);
 
@@ -50,13 +36,13 @@ class _MoneyState extends State<Money> {
                           itemCount: budget.transactions.length,
                           itemBuilder: (context, index) {
                             final transaction = budget.transactions[index];
-                            final isIncome = transaction.isIncome == 1;
+                            final isIncome = transaction.isIncome == true;
                             final icon =
                                 isIncome
                                     ? Icons.arrow_upward
                                     : Icons.arrow_downward;
                             final iconColor =
-                                isIncome ? Colors.green : Colors.red;
+                                isIncome == true ? Colors.green : Colors.red;
 
                             return Card(
                               elevation: 3,

@@ -11,9 +11,9 @@ The goal? **Less stress, more clarity.**
 ✅ = Completed 🛠️ = In Progress 🔜 = Coming Soon
 
 ### 🏠 Home Page
-- ✅ Intro to the app
+- 🔜 Intro to the app
 - 🔜 Daily to-do or reflection space
-- 🔜 Motivational quotes / tips
+
 
 ### 🔐 Authentication
 - 🔜 Login / Sign up system
@@ -21,8 +21,8 @@ The goal? **Less stress, more clarity.**
 - 🔜 Session-based login using local + backend checks
 
 ### 💰 Money Management
-- 🔜 Add incomes and expenses
-- ✅ Basic balance tracking
+- ✅ Add incomes and expenses
+- ✅ Basic balance tracking (to improve)
 - 🔜 Expense categories
 - 🔜 Budget alerts or limits
 - 🔜 Monthly summaries
@@ -33,10 +33,15 @@ The goal? **Less stress, more clarity.**
 - 🔜 Filter by diet (vegan, etc.)
 
 ### ✈️ Travel Organizer
-- 🛠🔜 Plan trips
+- 🔜 Plan trips
 - 🔜 Budget estimation
 - 🔜 Save favorite destinations
 - 🔜 Packing checklist
+
+### ✈️ To do list
+- 🔜 month list 
+- 🔜 daily list
+- 🔜 year list
 
 ### ⚙️ Settings
 - 🔜 Change themes / colors (soon)

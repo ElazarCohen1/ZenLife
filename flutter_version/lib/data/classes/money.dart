@@ -4,7 +4,7 @@ class Transaction {
   final double amount;
   final DateTime date;
   final String? description;
-  final int? isIncome; // 0 for spending, 1 for income
+  final bool? isIncome; // 0 for spending, 1 for income
 
   Transaction({
     required this.amount,
