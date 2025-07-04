@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_version/views/widget/customPaint.dart';
+import 'package:lottie/lottie.dart';
 
 class Accueil extends StatelessWidget {
   const Accueil({super.key});
@@ -15,17 +16,11 @@ class Accueil extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ...List.generate(3, (context) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Text("bonjour", style: TextStyle(fontSize: 18)),
-                      ),
-                    ),
-                  );
-                }),
+                Lottie.asset(
+                  "assets/lotties/welcome.json",
+                  width: 300,
+                  height: 300,
+                ),
               ],
             ),
           ),

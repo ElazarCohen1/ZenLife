@@ -15,7 +15,7 @@ class _MoneyState extends State<Money> {
   @override
   Widget build(BuildContext context) {
     final budget = Provider.of<Budget>(context);
-
+    final double total = budget.calculBudget();
     return Scaffold(
       appBar: AppBar(title: const Text("Mes Transactions"), centerTitle: true),
       body: SafeArea(
@@ -45,7 +45,6 @@ class _MoneyState extends State<Money> {
                                 isIncome == true ? Colors.green : Colors.red;
 
                             return Card(
-                              elevation: 3,
                               margin: const EdgeInsets.symmetric(vertical: 6),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12),
@@ -69,21 +68,20 @@ class _MoneyState extends State<Money> {
                                   "${transaction.date.day}/${transaction.date.month}/${transaction.date.year}",
                                   style: const TextStyle(fontSize: 13),
                                 ),
-                                trailing: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                trailing: Wrap(
+                                  spacing: 5,
+                                  crossAxisAlignment: WrapCrossAlignment.center,
                                   children: [
                                     Text(
                                       "${isIncome ? '+' : '-'}${transaction.amount.toStringAsFixed(2)} €",
                                       style: TextStyle(
                                         color: iconColor,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
+                                        fontSize: 15,
                                       ),
                                     ),
                                     IconButton(
                                       icon: const Icon(Icons.delete_outline),
                                       color: Colors.grey,
-                                      padding: EdgeInsets.zero,
                                       onPressed: () {
                                         if (isIncome) {
                                           budget.removeIncome(transaction);
@@ -100,12 +98,17 @@ class _MoneyState extends State<Money> {
                         ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 15),
+                padding: const EdgeInsets.all(15),
+                margin: const EdgeInsets.all(10),
+                alignment: Alignment.topCenter,
+
+                height: 150,
                 child: Text(
-                  "Solde actuel : ${budget.calculBudget().toStringAsFixed(2)} €",
-                  style: const TextStyle(
+                  "Solde actuel : ${total.toStringAsFixed(2)} €",
+                  style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
+                    color: total < 0 ? Colors.red : Colors.green,
                   ),
                 ),
               ),

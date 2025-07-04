@@ -119,7 +119,11 @@ class _AddPayementState extends State<AddPayement> {
                         lastDate: DateTime.now(),
                         initialPickerDateTime: DateTime.now(),
                         onChanged: (DateTime? value) {
-                          selectedDate = value;
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
+                            setState(() {
+                              selectedDate = value;
+                            });
+                          });
                         },
                       ),
 
@@ -131,7 +135,8 @@ class _AddPayementState extends State<AddPayement> {
                             listen: false,
                           );
 
-                          if (_formKey.currentState!.validate()) {
+                          if (_formKey.currentState != null &&
+                              _formKey.currentState!.validate()) {
                             _isIncome
                                 ? budget.addIncome(
                                   Transaction(
@@ -153,6 +158,13 @@ class _AddPayementState extends State<AddPayement> {
                                     isIncome: _isIncome,
                                   ),
                                 );
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Transaction ajoutée avec succès.',
+                                ),
+                              ),
+                            );
                             Navigator.pop(context);
                           }
                         },
