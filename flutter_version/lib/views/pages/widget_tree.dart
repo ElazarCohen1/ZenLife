@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_version/data/constants.dart';
 import 'package:flutter_version/data/notifiers.dart';
 import 'package:flutter_version/views/pages/accueil.dart';
 import 'package:flutter_version/views/pages/money.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_version/views/pages/settings.dart';
 import 'package:flutter_version/views/pages/to_do_list_page.dart';
 import 'package:flutter_version/views/pages/travel.dart';
 import 'package:flutter_version/views/widget/navbar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 List<Widget> pagesList = [Accueil(), ToDoList(), Money(), MyMeal(), Travel()];
 
@@ -63,8 +65,12 @@ class WidgetTree extends StatelessWidget {
             icon: const Icon(Icons.settings, color: Colors.white),
           ),
           IconButton(
-            onPressed: () {
+            onPressed: () async {
               isDarkModeNotifier.value = !isDarkModeNotifier.value;
+
+              final SharedPreferences prefs =
+                  await SharedPreferences.getInstance();
+              await prefs.setBool(Kconstant.darkMode, isDarkModeNotifier.value);
             },
             icon: Icon(
               isDarkModeNotifier.value == true
